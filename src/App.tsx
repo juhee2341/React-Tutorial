@@ -8,23 +8,42 @@ import { Button } from "./components/Button";
  * 그리고 버튼의 대표적인 속성들이 무엇이 있는지 살펴볼것
  */
 function App() {
-  let count = 0;
+  const items = Array.from({ length: 9 }, (_, i) => `상품 ${i + 1}`);
+  const [cart, setCart] = useState<string[]>([]);
+
+  const addToCart = (item: string) => {
+    setCart((prev) => [...prev, item]);
+  };
 
   return (
-    <>
-      <span>{count}</span>
-      <div className="card">
-        <button
-          onClick={() => {
-            count++;
-            console.log(count); // 콘솔에서는 증가함
-          }}
-        >
-          +
-        </button>
-        {/* <Button>+</Button> */}
-      </div>
-    </>
+    <div className="layout">
+      <header>
+        <h1>쇼핑 페이지</h1>
+      </header>
+
+      <main>
+        <div className="grid">
+          {items.map((item) => (
+            <div key={item} className="card" onClick={() => addToCart(item)}>
+              {item}
+            </div>
+          ))}
+        </div>
+
+        <aside className="cart">
+          <strong>장바구니</strong>
+          <ul>
+            {cart.map((item, index) => (
+              <li key={`${item}-${index}`}>{item}</li>
+            ))}
+          </ul>
+        </aside>
+      </main>
+
+      <footer>
+        <small>Footer 영역</small>
+      </footer>
+    </div>
   );
 }
 
