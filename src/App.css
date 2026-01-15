@@ -44,6 +44,7 @@ main {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  column-gap: 8px;
 }
 
 .cart {

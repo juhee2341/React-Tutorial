@@ -12,7 +12,9 @@ function App() {
   const [cart, setCart] = useState<string[]>([]);
 
   const addToCart = (item: string) => {
-    setCart((prev) => [...prev, item]);
+    setCart((prev) =>
+      prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]
+    );
   };
 
   return (
@@ -25,7 +27,8 @@ function App() {
         <div className="grid">
           {items.map((item) => (
             <div key={item} className="card" onClick={() => addToCart(item)}>
-              {item}
+              <span>{item}</span>
+              {cart.includes(item) && <span>☑️</span>}
             </div>
           ))}
         </div>
