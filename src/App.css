@@ -3,19 +3,49 @@
 }
 
 body {
-  margin: 0;
-}
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard",
+    "Noto Sans KR", "Segoe UI", Roboto, Arial, sans-serif;
 
+  font-size: 14px;
+  line-height: 1.6;
+  color: #222;
+}
 .layout {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  padding: 32px;
 }
 
-header,
-footer {
-  padding: 16px;
-  border-bottom: 1px solid #ccc;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-family: cursive;
+}
+
+.menu {
+  display: flex;
+  gap: 16px;
+  font-size: 20px;
+  font-family: serif;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu a {
+  display: block; /* 클릭 영역 확보 */
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #000;
 }
 
 footer {
@@ -34,21 +64,32 @@ main {
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  column-gap: 12px; /* 가로 간격 */
+  row-gap: 24px; /* 세로 간격만 크게 */
 }
 
 .card {
-  height: 120px;
-  border: 1px solid #ccc;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center; /* 가로 가운데 */
   cursor: pointer;
-  column-gap: 8px;
+}
+
+.item {
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon {
+  display: inline-flex;
+  column-gap: 4px;
 }
 
 .cart {
   border: 1px solid #ccc;
+  border-radius: 12px;
   padding: 8px;
 }
 
